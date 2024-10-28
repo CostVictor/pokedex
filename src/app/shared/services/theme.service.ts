@@ -35,7 +35,7 @@ export class ThemeService {
     }
   }
 
-  ngOnInit() {
+  constructor() {
     // Verifica se o usuário possui algum tema salvo, caso contrário, usa sua preferência do navegador.
     const isThemeDark = this._detectThemeInLocalStorage() ?? this._detectUserPreferredTheme()
     this._themeDark.next(isThemeDark)
