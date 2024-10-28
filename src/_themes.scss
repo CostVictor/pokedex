@@ -1,0 +1,40 @@
+@mixin theme-white-root {
+  --bg-primary: #f6f8fc;
+  --bg-secondary: #fff;
+
+  --bg-search: #fff;
+  --bg-btn-search: #ff5350;
+  --bg-btn: #f0f1e5;
+
+  --color-text: #363131;
+  --placeholder: #c9b3b3;
+
+  --color-card-info: #f6f8fc;
+  --color-arrow: #1e1e1e;
+
+  // Tipos.
+  --grass: #bfc66b;
+  --poison: #bfc66b;
+
+  // Estatísticas.
+  --HP: #df2140;
+  --ATK: #ff994d;
+  --DEF: #eecd3d;
+  --SpA: #85ddff;
+  --SpD: #96da83;
+  --SPD: #fb94a8;
+
+  --shadow-default: 4px 4px 21.5px 6px #00000040;
+  --shadow-searth: 0px 4px 18.5px 2px #00000040;
+  --shadow-card-page: 0px 21px 25.9px -14px #0000001a;
+}
+
+@mixin theme-dark {
+  --bg-primary: #dd092f;
+  --bg-secondary: #77b35b;
+
+  --color-text: #ffffff;
+  --color-card-info: #bfc66b;
+
+  --color-arrow: #f3f3f3;
+}

@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./reset";
+@import "./themes";
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  @include theme-white-root();
+}
+
+.theme-dark {
+  @include theme-dark();
+}
+
+body {
+  background-color: var(--bg-primary);
+  font-family: "Kumbh Sans", sans-serif;
+  transition: 0.2s ease-in-out;
+
+  button {
+    font-family: "Inter", sans-serif;
+  }
+}
