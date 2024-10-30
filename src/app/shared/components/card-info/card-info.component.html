@@ -1,0 +1,23 @@
+<article class="card">
+  <div class="container">
+    <div class="container">
+      <span
+        *ngFor="let type of listOfPokemonTypes"
+        [ngStyle]="{ 'background-color': 'var(--' + type + ')' }"
+        class="info_type"
+        >{{ type | titlecase }}</span
+      >
+    </div>
+    <span class="number">{{ formattedPosNumber() }}</span>
+  </div>
+  <div class="container">
+    <div class="content">
+      <h2>{{ namePokemon }}</h2>
+      <p>
+        {{ description }}
+      </p>
+      <button>Know More</button>
+    </div>
+    <img class="img" [src]="imageURL" alt="Imagem do Pokémon." />
+  </div>
+</article>
