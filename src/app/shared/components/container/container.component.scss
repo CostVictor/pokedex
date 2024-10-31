@@ -2,7 +2,7 @@
 @import "src/styles/breackpoints";
 
 .container {
-  max-width: 1350px;
+  max-width: $bp-limit;
   margin: auto;
 
   &.grid {
@@ -12,8 +12,9 @@
 
     @include applyGridColumns(3);
 
-    @media (max-width: $bp-tablet) {
+    @media (max-width: $bp-limit) {
       @include applyGridColumns(2);
+      width: fit-content;
     }
 
     @media (max-width: $bp-mobile) {
