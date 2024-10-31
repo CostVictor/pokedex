@@ -1,0 +1,3 @@
+@mixin applyGridColumns($columns) {
+  grid-template-columns: repeat($columns, 1fr);
+}
