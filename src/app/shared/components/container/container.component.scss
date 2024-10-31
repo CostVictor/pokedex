@@ -1,0 +1,23 @@
+@import "src/styles/mixins";
+@import "src/styles/breackpoints";
+
+.container {
+  max-width: 1350px;
+  margin: auto;
+
+  &.grid {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    @include applyGridColumns(3);
+
+    @media (max-width: $bp-tablet) {
+      @include applyGridColumns(2);
+    }
+
+    @media (max-width: $bp-mobile) {
+      @include applyGridColumns(1);
+    }
+  }
+}
