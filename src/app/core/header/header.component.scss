@@ -1,0 +1,17 @@
+@import "src/styles/breackpoints";
+
+.container_main {
+  padding: 3rem;
+
+  .img {
+    width: 192px;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: 2rem;
+
+    .img {
+      width: 106px;
+    }
+  }
+}
