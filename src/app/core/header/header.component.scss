@@ -1,16 +1,32 @@
 @import "src/styles/breackpoints";
 
 .container_main {
-  padding: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 2.2rem 3rem;
 
-  .img {
+  .logo {
     width: 192px;
+    cursor: pointer;
+  }
+
+  .icon {
+    color: var(--color-text);
+    font-size: 2rem;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  @media (max-width: $bp-tablet) {
+    .logo {
+      width: 140px;
+    }
   }
 
   @media (max-width: $bp-mobile) {
-    padding: 2rem;
+    padding: 1.8rem 2rem;
 
-    .img {
+    .logo {
       width: 106px;
     }
   }

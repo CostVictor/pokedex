@@ -4,6 +4,7 @@
 .container {
   max-width: $bp-limit;
   margin: auto;
+  padding: 2rem 0;
 
   &.grid {
     display: grid;
@@ -16,8 +17,16 @@
       @include applyGridColumns(2);
       width: fit-content;
     }
+  }
 
-    @media (max-width: $bp-mobile) {
+  @media (max-width: $bp-tablet) {
+    padding: 1.5rem 0;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: 1rem 0;
+
+    &.grid {
       @include applyGridColumns(1);
     }
   }
