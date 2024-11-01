@@ -1,0 +1,82 @@
+@import "src/styles/breackpoints";
+
+.icon_layout {
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+
+  width: 410px;
+  filter: contrast(85%);
+
+  &.pos_1 {
+    top: -4rem;
+    left: -9.5rem;
+  }
+
+  &.pos_2 {
+    top: -16.5rem;
+    right: 28%;
+  }
+
+  &.pos_3 {
+    top: 10.5rem;
+    right: -16rem;
+  }
+
+  @media (max-width: $bp-limit) {
+    width: 350px;
+
+    &.pos_1 {
+      top: -3.5rem;
+      left: -9rem;
+    }
+
+    &.pos_2 {
+      top: -15rem;
+      right: 25%;
+    }
+
+    &.pos_3 {
+      top: 10rem;
+      right: -13rem;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    width: 280px;
+
+    &.pos_1 {
+      top: -3rem;
+      left: -7rem;
+    }
+
+    &.pos_2 {
+      top: -12rem;
+      right: 20%;
+    }
+
+    &.pos_3 {
+      top: 9rem;
+      right: -11rem;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    width: 172px;
+
+    &.pos_1 {
+      top: -1.5rem;
+      left: -5rem;
+    }
+
+    &.pos_2 {
+      top: -7.3rem;
+      right: 16%;
+    }
+
+    &.pos_3 {
+      top: 9rem;
+      right: -7rem;
+    }
+  }
+}
