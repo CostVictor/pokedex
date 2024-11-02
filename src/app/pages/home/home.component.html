@@ -1,33 +1,17 @@
-<main>
-  <app-container [isGrid]="true">
-    <app-card-info
-      namePokemon="Bulbasaur"
-      description="A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon."
-      [listOfPokemonTypes]="['grass', 'poison']"
-    ></app-card-info>
+<app-container class="container_img">
+  <img
+    src="assets/logo-pokedex.svg"
+    alt="Imagem principal da Pokédex."
+    loading="eager"
+  />
+</app-container>
 
-    <app-card-info
-      namePokemon="Bulbasaur"
-      description="A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon."
-      [listOfPokemonTypes]="['grass', 'poison']"
-    ></app-card-info>
-
-    <app-card-info
-      namePokemon="Bulbasaur"
-      description="A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon."
-      [listOfPokemonTypes]="['grass', 'poison']"
-    ></app-card-info>
-
-    <app-card-info
-      namePokemon="Bulbasaur"
-      description="A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon."
-      [listOfPokemonTypes]="['grass', 'poison']"
-    ></app-card-info>
-
-    <app-card-info
-      namePokemon="Bulbasaur"
-      description="A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon."
-      [listOfPokemonTypes]="['grass', 'poison']"
-    ></app-card-info>
-  </app-container>
-</main>
+<app-container [isGrid]="true">
+  <app-card-info
+    *ngFor="let pokemon of allPokemons; let index = index"
+    imageURL="{{ pokemon.imageURL }}"
+    namePokemon="{{ pokemon.name | titlecase }}"
+    [listOfPokemonTypes]="pokemon.types"
+    [posNumber]="index + 1"
+  ></app-card-info>
+</app-container>

@@ -1,0 +1,19 @@
+@import "src/styles/breackpoints";
+
+.container_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    width: 495px;
+
+    @media (max-width: $bp-tablet) {
+      width: 350px;
+    }
+
+    @media (max-width: $bp-mobile) {
+      width: 223px;
+    }
+  }
+}

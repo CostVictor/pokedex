@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<img
+  *ngFor="let _ of rangeIconsLayout; let index = index"
+  src="assets/pokeball-icon.svg"
+  alt="Pokéball decorativa do layout da página."
+  class="icon_layout pos_{{ index + 1 }}"
+  loading="lazy"
+/>
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
