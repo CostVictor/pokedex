@@ -7,17 +7,17 @@ import { PokemonDataProps } from '../models/pokemon.type';
   providedIn: 'root'
 })
 export class PokemonsService {
-  private _allPokemons = new BehaviorSubject<PokemonDataProps[]>([])
+  private _dataAllPokemons = new BehaviorSubject<PokemonDataProps[]>([])
 
   constructor(private _pokemonsRest: PokemonsRestService) { this.loadAll() }
 
-  get pokemons() {
-    return this._allPokemons.asObservable()
+  get pokemons$() {
+    return this._dataAllPokemons.asObservable()
   }
 
-  loadAll() {
+  private loadAll() {
     this._pokemonsRest.getPokemonsAPI().pipe(
-      tap(pokemonDetail => this._allPokemons.next(pokemonDetail))
+      tap(dataAllPokemons => this._dataAllPokemons.next(dataAllPokemons))
     ).subscribe()
   }
 }

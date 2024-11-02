@@ -11,7 +11,8 @@
     *ngFor="let pokemon of allPokemons; let index = index"
     imageURL="{{ pokemon.imageURL }}"
     namePokemon="{{ pokemon.name | titlecase }}"
-    [listOfPokemonTypes]="pokemon.types"
+    description="{{ pokemon.description }}"
+    [listOfPokemonTypes]="pokemon.type"
     [posNumber]="index + 1"
   ></app-card-info>
 </app-container>

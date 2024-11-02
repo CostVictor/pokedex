@@ -2,14 +2,10 @@ export interface PokemonDataProps {
   name: string;
   height: number;
   weight: number;
+  description: string;
   imageURL: string;
-
-  types: string[];
-  stats: { base_stat: number; stat: { name: string } }[];
-  abilities: { ability: { name: string } }[];
-
-  species: {
-    flavor_text_entries: { flavor_text: string; language: { name: string } }[];
-    evolution_chain: { url: string };
-  }
+  type: string[];
+  abilities: string[];
+  evolution: string[];
+  stats: { stat: string, base_stat: number }[];
 }

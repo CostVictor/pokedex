@@ -16,8 +16,14 @@
       <p>
         {{ description }}
       </p>
-      <button>Know More</button>
+      <button (click)="redirectToDatails()">Know More</button>
     </div>
-    <img class="img" [src]="imageURL" alt="Imagem do Pokémon." />
+    <img
+      class="img"
+      [src]="imageURL"
+      alt="Imagem do Pokémon."
+      width="110"
+      height="110"
+    />
   </div>
 </article>

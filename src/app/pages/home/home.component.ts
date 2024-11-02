@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { PokemonsService } from 'src/app/shared/services/pokemons.service';
 import { PokemonDataProps } from 'src/app/shared/models/pokemon.type';
 
@@ -10,8 +12,16 @@ import { PokemonDataProps } from 'src/app/shared/models/pokemon.type';
 export class HomeComponent {
   constructor(private _pokemonsService: PokemonsService) { }
   allPokemons: PokemonDataProps[] = []
+  subscription: Subscription | null = null
 
-  async ngOnInit() {
-    this._pokemonsService.pokemons.subscribe((pokemons => { this.allPokemons = pokemons; }))
+  ngOnInit() {
+    this.subscription = this._pokemonsService.pokemons$
+      .subscribe({ next: (values) => this.allPokemons = values })
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+    }
   }
 }
