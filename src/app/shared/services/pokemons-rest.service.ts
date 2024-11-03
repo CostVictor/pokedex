@@ -24,7 +24,7 @@ export class PokemonsRestService {
   constructor(private _http: HttpClient) { }
 
   getPokemonsAPI() {
-    const request = this._http.get<PokemonResponseProp>(this._baseURL, { params: { limit: 151, offset: 0 } })
+    const request = this._http.get<PokemonResponseProp>(this._baseURL, { params: { limit: 300, offset: 0 } })
       .pipe(catchError(this.handleError));
 
     // Realiza a extração das informações.

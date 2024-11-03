@@ -1,4 +1,4 @@
-<article class="card">
+<article [ngClass]="{ card: true, focus: inFocus }">
   <div class="container">
     <div class="container">
       <span
@@ -22,8 +22,8 @@
       class="img"
       [src]="imageURL"
       alt="Imagem do Pokémon."
-      width="110"
-      height="110"
+      width="150"
+      height="150"
     />
   </div>
 </article>

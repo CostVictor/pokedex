@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
 export class CardInfoComponent {
   @Input() namePokemon: string = "Não definido"
   @Input() description: string = "Não definido"
-  @Input() listOfPokemonTypes: string[] = ["Não definido"]
-  @Input() posNumber: Number = 0
-  @Input() imageURL: string = ""
+  @Input() listOfPokemonTypes = ["Não definido"]
+  @Input() posNumber = 0
+  @Input() imageURL = ""
+  @Input() inFocus = false
 
   constructor(private _router: Router) { }
 

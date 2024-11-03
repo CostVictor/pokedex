@@ -18,6 +18,10 @@
     box-shadow: var(--shadow-search);
   }
 
+  &.focus {
+    box-shadow: var(--shadow-search);
+  }
+
   .container {
     display: flex;
     justify-content: center;
