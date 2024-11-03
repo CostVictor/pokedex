@@ -1,4 +1,4 @@
-<article class="card">
+<article [ngClass]="{ card: true, focus: inFocus }">
   <div class="container">
     <div class="container">
       <span
@@ -16,8 +16,14 @@
       <p>
         {{ description }}
       </p>
-      <button>Know More</button>
+      <button (click)="redirectToDatails()">Know More</button>
     </div>
-    <img class="img" [src]="imageURL" alt="Imagem do Pokémon." />
+    <img
+      class="img"
+      [src]="imageURL"
+      alt="Imagem do Pokémon."
+      width="150"
+      height="150"
+    />
   </div>
 </article>

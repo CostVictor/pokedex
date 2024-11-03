@@ -2,22 +2,28 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
 import { PokemonsRestService } from './pokemons-rest.service';
 import { PokemonDataProps } from '../models/pokemon.type';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonsService {
-  private _allPokemons = new BehaviorSubject<PokemonDataProps[]>([])
+  private _dataAllPokemons = new BehaviorSubject<PokemonDataProps[]>([])
 
   constructor(private _pokemonsRest: PokemonsRestService) { this.loadAll() }
 
-  get pokemons() {
-    return this._allPokemons.asObservable()
+  get pokemons$() {
+    return this._dataAllPokemons.asObservable()
   }
 
-  loadAll() {
+  filterPokemon(name: string) {
+    return this._dataAllPokemons
+      .pipe(map(pokemons => pokemons.filter(pokemon => pokemon.name.includes(name))))
+  }
+
+  private loadAll() {
     this._pokemonsRest.getPokemonsAPI().pipe(
-      tap(pokemonDetail => this._allPokemons.next(pokemonDetail))
+      tap(dataAllPokemons => this._dataAllPokemons.next(dataAllPokemons))
     ).subscribe()
   }
 }
