@@ -2,5 +2,29 @@
   <a [routerLink]="'/'">
     <img class="logo" src="assets/logo-pokedex.svg" alt="Logo Pokédex" />
   </a>
-  <span class="iconify icon" data-icon="ic:sharp-menu"></span>
+
+  <ng-container *ngIf="openMenu; else iconMenu">
+    <section class="menu">
+      <div (click)="openMenu = false">
+        <span
+          class="iconify span_close"
+          data-icon="material-symbols:cancel-outline-rounded"
+        ></span>
+      </div>
+      <h2 class="title_menu">Options:</h2>
+      <div class="container_checkbox">
+        <p>Pokémon Theme:</p>
+        <app-checkbox
+          (statusChange)="changeTheme($event)"
+          [active]="isThemeDark"
+        />
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #iconMenu>
+    <div (click)="openMenu = true" class="icon">
+      <span class="iconify" data-icon="ic:sharp-menu"></span>
+    </div>
+  </ng-template>
 </header>

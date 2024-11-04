@@ -10,11 +10,43 @@
     cursor: pointer;
   }
 
+  .menu {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    background-color: var(--bg-search);
+    box-shadow: var(--shadow-default);
+    border-radius: 10px;
+
+    .title_menu {
+      padding: 1rem;
+      border-bottom: 1px solid #49494938;
+    }
+
+    .container_checkbox {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .span_close {
+      position: absolute;
+      font-size: 1.3rem;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+  }
+
   .icon {
-    color: var(--color-text);
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
     margin-left: auto;
     cursor: pointer;
+
+    color: var(--color-text);
+    font-size: 2rem;
   }
 
   @media (max-width: $bp-tablet) {
