@@ -78,7 +78,10 @@ export class PokemonsRestService {
   // Extraindo os dados necessários diretamente de PokemonDataResponseProps.
   private extractPokemonData(dataPokemon: PokemonResponseDataProps) {
     const { pokemonDetails, evolutionChain, description } = dataPokemon
-    const { name, height, weight } = pokemonDetails;
+    const { name } = pokemonDetails;
+
+    const height = pokemonDetails.height / 10
+    const weight = pokemonDetails.weight / 10
 
     // Obtem sua cadeia evolutiva.
     const evolution: string[] = [];
