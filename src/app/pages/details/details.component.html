@@ -1,1 +1,87 @@
-<p>details works!</p>
+<app-container>
+  <div class="card_details">
+    <img
+      [src]="pokemon?.imageURL"
+      [alt]="'Image of pokémon ' + pokemon?.name"
+      class="img"
+      width="400"
+      height="400"
+    />
+    <div class="container_details">
+      <div class="container_info">
+        <span class="span_number">{{ pokemon?.pos }}</span>
+        <h3>{{ pokemon?.name | titlecase }}</h3>
+        <div class="container_type">
+          <span
+            *ngFor="let type of pokemon?.type"
+            [ngStyle]="{ 'background-color': 'var(--' + type + ')' }"
+            class="span_type"
+            >{{ type | titlecase }}</span
+          >
+        </div>
+        <p class="text_description">{{ pokemon?.description }}</p>
+        <div class="grid">
+          <div class="info">
+            <p class="text focus">Height</p>
+            <p class="text">{{ pokemon?.height }}m</p>
+          </div>
+          <div class="info">
+            <p class="text focus">Weight</p>
+            <p class="text">{{ pokemon?.weight }}kg</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container_info">
+        <h4>Stats</h4>
+        <div class="grid">
+          <ng-container *ngFor="let info of pokemon?.stats" class="grid">
+            <div
+              [ngStyle]="{
+                'background-color':
+                  'var(--' + getStatAbbreviation(info.stat) + ')'
+              }"
+              class="info"
+            >
+              <p class="text focus">{{ getStatAbbreviation(info.stat) }}</p>
+              <p class="text">{{ info.base_stat }}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="container_info">
+        <h4>Abilities</h4>
+        <div class="grid">
+          <div *ngFor="let value of pokemon?.abilities" class="info center">
+            <p class="text focus">{{ value | titlecase }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-container>
+
+<app-container class="local_evolution">
+  <h3>Evolution</h3>
+
+  <div class="container_sequence">
+    <ng-container
+      *ngFor="let evolution of pokemon?.evolution; let index = index"
+    >
+      <div class="arrow">
+        <span
+          *ngIf="index"
+          class="iconify"
+          data-icon="ic:baseline-arrow-forward"
+        ></span>
+      </div>
+      <img
+        [src]="evolution"
+        [alt]="
+          'image of the evolutionary version of the pokemon ' + pokemon?.name
+        "
+      />
+    </ng-container>
+  </div>
+</app-container>

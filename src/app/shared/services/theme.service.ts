@@ -21,7 +21,7 @@ export class ThemeService {
     return window.matchMedia('(prefers-color-scheme: dark)').matches
   }
 
-  get theme$(): Observable<boolean> {
+  get themeIsDark$(): Observable<boolean> {
     return this._themeDark.asObservable()
   }
 
@@ -32,16 +32,16 @@ export class ThemeService {
       this._themeDark.next(this._detectUserPreferredTheme())
     } else {
       this._themeDark.next(value)
+      localStorage.setItem("themeUser", String(value ? "dark" : "light"))
+
+      const body = document.body
+      body.classList.toggle("theme-dark", value)
     }
   }
 
   constructor() {
     // Verifica se o usuário possui algum tema salvo, caso contrário, usa sua preferência do navegador.
     const isThemeDark = this._detectThemeInLocalStorage() ?? this._detectUserPreferredTheme()
-    this._themeDark.next(isThemeDark)
-
-    // Aplica o tema na página.
-    const body = document.body
-    body.classList.toggle("theme-dark", isThemeDark)
+    this.themeDark = isThemeDark
   }
 }

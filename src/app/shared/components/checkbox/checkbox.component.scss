@@ -1,0 +1,28 @@
+.checkbox {
+  padding: 0.2rem;
+  background-color: var(--bg-checkbox);
+  border-radius: 10px;
+
+  width: 38px;
+  height: 1.5rem;
+
+  margin-right: auto;
+
+  &.active {
+    background-color: var(--bg-checkbox-active);
+
+    div {
+      margin: 0;
+      margin-left: auto;
+    }
+  }
+
+  div {
+    height: 15px;
+    width: 17px;
+
+    border-radius: 50px;
+    background-color: var(--bg-search);
+    left: 0;
+  }
+}

@@ -8,4 +8,5 @@ export interface PokemonDataProps {
   abilities: string[];
   evolution: string[];
   stats: { stat: string, base_stat: number }[];
+  pos?: string;
 }

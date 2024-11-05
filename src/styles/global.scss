@@ -20,6 +20,7 @@ body {
   background-color: var(--bg-primary);
   font-family: "Kumbh Sans", sans-serif;
   min-height: 100vh;
+  transition: 0.2s ease-in-out;
 
   button {
     font-family: "Inter", sans-serif;

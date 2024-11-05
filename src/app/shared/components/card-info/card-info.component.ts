@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { positionFormatter } from 'src/app/utils/formatters';
 
 @Component({
   selector: 'app-card-info',
@@ -17,8 +18,7 @@ export class CardInfoComponent {
   constructor(private _router: Router) { }
 
   formattedPosNumber() {
-    // deixa no formato `#000`.
-    return `#${this.posNumber.toString().padStart(3, "0")}`
+    return positionFormatter(this.posNumber)
   }
 
   redirectToDatails() {

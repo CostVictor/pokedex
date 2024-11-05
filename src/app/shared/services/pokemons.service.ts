@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
 import { PokemonsRestService } from './pokemons-rest.service';
 import { PokemonDataProps } from '../models/pokemon.type';
-import { map } from 'rxjs/operators';
+import { positionFormatter } from 'src/app/utils/formatters';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +16,25 @@ export class PokemonsService {
     return this._dataAllPokemons.asObservable()
   }
 
-  filterPokemon(name: string) {
-    return this._dataAllPokemons
-      .pipe(map(pokemons => pokemons.filter(pokemon => pokemon.name.includes(name))))
+  getPokemonByName(name: string) {
+    const pokemons = this._dataAllPokemons.getValue()
+    const pokemon = pokemons
+      .filter(pokemon => pokemon.name.includes(name))[0]
+
+    if (pokemon) {
+      const pos = pokemons.findIndex((pokemon => pokemon.name === name))
+      pokemon.pos = positionFormatter(pos + 1)
+
+      const listOfEvolutionImages: string[] = []
+      pokemon.evolution.forEach(nameVersion => {
+        const version = pokemons.filter(pokemon => pokemon.name === nameVersion)[0]
+        listOfEvolutionImages.push(version.imageURL)
+      })
+
+      pokemon.evolution = listOfEvolutionImages
+    }
+
+    return pokemon
   }
 
   private loadAll() {
